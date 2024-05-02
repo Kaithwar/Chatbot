@@ -1,0 +1,3 @@
+streamlit==1.28.1
+openai==1.14.1
+streamlit_monaco==0.1.3
