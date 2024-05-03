@@ -1,30 +1,6 @@
 from openai import OpenAI
-from dotenv import load_dotenv
-import os
 
-os.environ["OPENAI_API_KEY"] = "sk-proj-xXgnWUDwCqQ5dXt3kRP2T3BlbkFJiIKEBhR5hDQ9h91fFjMQ"
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-
-def configure():
-    load_dotenv()
-
-# Function to interact with the chatbot using GPT-3
-def ask_question(question):
-    response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {
-                "role": "user",
-                "content": question
-                }
-            ],
-            temperature=1,
-            max_tokens=256,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-            )
-    return response.choices[0].message.content
+client = OpenAI(api_key="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")
 
 
 # Function to run the code and get the output

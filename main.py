@@ -4,7 +4,26 @@ from func import ask_question
 from func import debug_code
 from func import run_code
 from func import analyze_code
-from func import configure
+
+client = OpenAI(api_key="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")
+
+# Function to interact with the chatbot using GPT-3
+def ask_question(question):
+    response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {
+                "role": "user",
+                "content": question
+                }
+            ],
+            temperature=1,
+            max_tokens=256,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0
+            )
+    return response.choices[0].message.content
 
 
 with st.container():
