@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 
 
 # Function to run the code and get the output
