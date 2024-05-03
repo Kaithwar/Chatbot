@@ -5,7 +5,7 @@ from func import debug_code
 from func import run_code
 from func import analyze_code
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 
 # Function to interact with the chatbot using GPT-3
 def ask_question(question):
