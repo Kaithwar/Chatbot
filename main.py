@@ -1,32 +1,14 @@
 import streamlit as st
-from openai import OpenAI
 from streamlit_monaco import st_monaco
+from func import ask_question
 from func import debug_code
 from func import run_code
 from func import analyze_code
-
-client = OpenAI(api_key="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")
-
-# Function to interact with the chatbot using GPT-3
-def ask_question(question):
-    response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {
-                "role": "user",
-                "content": question
-                }
-            ],
-            temperature=1,
-            max_tokens=256,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-            )
-    return response.choices[0].message.content
+from func import configure
 
 
 with st.container():
+    configure()
     st.title("Chat with the AI")
 
     st.subheader("Ask any question:")
@@ -43,6 +25,7 @@ with st.container():
     
 
 with st.container():
+    configure()
     st.subheader("Enter code:")
     language=st.selectbox("Select language", ["python", "java", "javascript","cpp", "html", "css", "markdown"]),
     content = st_monaco(
